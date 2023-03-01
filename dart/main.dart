@@ -1,34 +1,50 @@
-void main() {
-  var pi = 3.14159;
-  var r = 2;
-  var a = pi * (r * r);
+import 'dart:io';
 
-  print('exercicio 1:  $a');
+ void main() {
+  List<int> n = List.filled(10, 0);
+  print('numero inteiro positivo');
+  int number = int.parse(stdin.readLineSync()!);
+  n[0] = number;
+  for(int i = 0; i<9; i++){
+    n[i+1] = n[i]*2;
+    
+  }
+  for(int i = 0; i <n.length;i++ ){
+    print('n[$i]=${n[i]}');
 
-  var chapa = 25;
-  var horas = 100;
-  var shora = 5.50;
-  var salario = horas * shora;
+  }
+  
+  var pares = <int>[]; 
+  var impares = <int>[]; 
 
-  print('exercicio 2: funcionario com numero de chama $chapa recebe $salario reais');
+  for (var i = 1; i <= 10; i++) {
+    print('Digite o $iº valor:');
+    var valor = int.parse(stdin.readLineSync()!);
 
-  var nome = "João";
-  var salario2 = 500;
-  var comissao = 1230.30 * 0.15;
-  var salariom = salario2 + comissao;
+    if (valor % 2 == 0) {
+      pares.add(valor); 
+    } else {
+      impares.add(valor);
+    }
+  }
 
-  print('exercicio 3: $nome recebeu $salariom neste mes por conta dos $comissao de suas vendas');
+  print('Valores pares: $pares');
+  print('Valores ímpares: $impares');
+    
+    
+    var n2 = List.filled(100, 0, growable: false); // cria vetor com 100 posições e inicializa com valor 0
 
-  var q = 50;
-  var t = 12;
-  var delta = 100;
-  var u = t - delta - q;
+  for (var i = 0; i < 100; i++) {
+    print('Digite o valor para a posição $i:');
+    n2[i] = int.parse(stdin.readLineSync()!);
+  }
 
-  print(u);
+  print('Posições e valores menores ou iguais a 10:');
 
-  var trabalho = 12000;
-  var q1 = 23000;
-  var n = trabalho / q1 * 100;
-
-  print('exercicio 5: a capacidade percentual de trabalho é de $n%');
+  for (var i = 0; i < 100; i++) {
+    if (n2[i] <= 10) {
+      print('Posição $i: ${n2[i]}');
+    }
+  }
 }
+
